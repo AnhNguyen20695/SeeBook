@@ -1,0 +1,15 @@
+<table>
+    <td width="40px" height="27px">
+        <a href="{{ url_for('user', username=post.author.username) }}">
+        <img src = "url_for('uploaded_file', userid = user.id, filename = user.avatar)">
+    </td>
+    <tr valign="top">
+        {% set user_link %}
+            <a href="{{ url_for('user', username=post.author.username) }}">
+                {{ post.author.username }}
+            </a>
+        {% endset %}
+        {{ _('%(username)s said %(when)s',
+            username=user_link, when=moment(post.timestamp).fromNow()) }}
+    </tr>
+</table>
